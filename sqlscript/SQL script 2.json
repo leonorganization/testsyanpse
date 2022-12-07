@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 2",
+	"properties": {
+		"content": {
+			"query": "CREATE USER [lyuleon2@microsoft.com] FROM  EXTERNAL PROVIDER;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "test100c",
+				"poolName": "test100c"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

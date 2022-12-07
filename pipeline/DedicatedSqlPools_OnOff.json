@@ -1,0 +1,113 @@
+{
+	"name": "DedicatedSqlPools_OnOff",
+	"properties": {
+		"activities": [
+			{
+				"name": "Web_PostDedicatedSqlPool",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "If_isOn",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": {
+						"value": "@concat(\n'https://management.azure.com/subscriptions/'\n,pipeline().parameters.SubscriptionID\n,'/resourceGroups/'\n,pipeline().parameters.ResourceGroup\n,'/providers/Microsoft.Synapse/workspaces/'\n,pipeline().parameters.WorkspaceName\n,'/sqlPools/'\n,pipeline().parameters.DatabaseName\n,'/'\n,variables('State')\n,'?api-version=2019-06-01-preview'\n)",
+						"type": "Expression"
+					},
+					"connectVia": {
+						"referenceName": "AutoResolveIntegrationRuntime",
+						"type": "IntegrationRuntimeReference"
+					},
+					"method": "POST",
+					"body": "hoge",
+					"turnOffAsync": false,
+					"authentication": {
+						"type": "MSI",
+						"resource": "https://management.azure.com/"
+					}
+				}
+			},
+			{
+				"name": "If_isOn",
+				"type": "IfCondition",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@pipeline().parameters.IsOn",
+						"type": "Expression"
+					},
+					"ifFalseActivities": [
+						{
+							"name": "Set_StatePause",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "State",
+								"value": "pause"
+							}
+						}
+					],
+					"ifTrueActivities": [
+						{
+							"name": "Set_StateResume",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "State",
+								"value": "resume"
+							}
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"IsOn": {
+				"type": "bool",
+				"defaultValue": true
+			},
+			"SubscriptionID": {
+				"type": "string",
+				"defaultValue": "750575ff-ab82-4fa7-9a62-b7052fd86473"
+			},
+			"ResourceGroup": {
+				"type": "string",
+				"defaultValue": "test-sftp_group"
+			},
+			"WorkspaceName": {
+				"type": "string",
+				"defaultValue": "sftp-workspace3"
+			},
+			"DatabaseName": {
+				"type": "string",
+				"defaultValue": "tst"
+			}
+		},
+		"variables": {
+			"State": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "UtilityPipelines"
+		},
+		"annotations": [],
+		"lastPublishTime": "2022-08-12T07:51:47Z"
+	},
+	"type": "Microsoft.Synapse/workspaces/pipelines"
+}

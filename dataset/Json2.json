@@ -1,0 +1,33 @@
+{
+	"name": "Json2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "testlog.json",
+				"container": "container"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"LogId": {
+					"type": "string"
+				},
+				"Code": {
+					"type": "integer"
+				},
+				"Name": {
+					"type": "string"
+				}
+			}
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

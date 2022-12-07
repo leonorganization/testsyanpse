@@ -1,0 +1,17 @@
+{
+	"name": "DestinationDataset_3tk",
+	"properties": {
+		"annotations": [],
+		"type": "SqlPoolTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "test",
+			"table": "coviddata"
+		},
+		"sqlPool": {
+			"referenceName": "test100c",
+			"type": "SqlPoolReference"
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

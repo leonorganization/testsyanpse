@@ -1,0 +1,31 @@
+{
+	"name": "TestSink_Synapse",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSynapseAnalytics1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [
+			{
+				"name": "LogId",
+				"type": "varchar"
+			},
+			{
+				"name": "Code",
+				"type": "tinyint",
+				"precision": 3
+			},
+			{
+				"name": "Name",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "TestLog"
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

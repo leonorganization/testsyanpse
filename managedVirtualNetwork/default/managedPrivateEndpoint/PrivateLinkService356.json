@@ -1,0 +1,11 @@
+{
+	"name": "PrivateLinkService356",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/750575ff-ab82-4fa7-9a62-b7052fd86473/resourceGroups/test-sftp_group/providers/Microsoft.Network/privateLinkServices/sftp-link-service",
+		"groupId": "",
+		"fqdns": [
+			"server1.sftp.com",
+			"server2.sftp.com"
+		]
+	}
+}

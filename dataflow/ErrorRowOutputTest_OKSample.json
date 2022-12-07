@@ -1,0 +1,69 @@
+{
+	"name": "ErrorRowOutputTest_OKSample",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "TestSourceADLS",
+						"type": "DatasetReference"
+					},
+					"name": "SourceADLS"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "TestSink_Synapse",
+						"type": "DatasetReference"
+					},
+					"name": "sinkSynapse",
+					"rejectedDataLinkedService": {
+						"referenceName": "AzureDataLakeStorage1",
+						"type": "LinkedServiceReference"
+					}
+				}
+			],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          LogId as string,",
+				"          Code as integer,",
+				"          Name as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'documentPerLine') ~> SourceADLS",
+				"SourceADLS sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          LogId as string,",
+				"          Code as integer,",
+				"          Name as string",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     staged: true,",
+				"     allowCopyCommand: true,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'allErrors',",
+				"     outputRejectedData: true,",
+				"     rejectedData_fileSystem: 'test',",
+				"     rejectedData_folderPath: 'ErrorData',",
+				"     transactionCommit: 'single',",
+				"     reportSuccessOnError: false,",
+				"     mapColumn(",
+				"          LogId,",
+				"          Code,",
+				"          Name",
+				"     )) ~> sinkSynapse"
+			]
+		}
+	}
+}

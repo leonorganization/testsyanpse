@@ -1,0 +1,10 @@
+{
+	"name": "AzureBlobStorage958",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/750575ff-ab82-4fa7-9a62-b7052fd86473/resourceGroups/test/providers/Microsoft.Storage/storageAccounts/leonly",
+		"groupId": "blob",
+		"fqdns": [
+			"leonly.blob.core.windows.net"
+		]
+	}
+}

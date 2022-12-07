@@ -1,0 +1,124 @@
+{
+	"name": "Pipeline 5",
+	"properties": {
+		"description": "Resume or Pause Azure Synapse Analytics SQL Pool that has been created in Azure Synapse Analytics Workspaces. Created by https://techtalkcorner.com.",
+		"activities": [
+			{
+				"name": "Check Azure Synapse Analytics Status",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": {
+						"value": "@concat('https://management.azure.com/subscriptions/',pipeline().parameters.SubscriptionId,'/resourceGroups/',pipeline().parameters.ResourceGroupName,'/providers/Microsoft.Synapse/workspaces/',pipeline().parameters.ServerName,'/sqlPools/',pipeline().parameters.DatabaseName,'?api-version=2019-06-01-preview')",
+						"type": "Expression"
+					},
+					"connectVia": {
+						"referenceName": "AutoResolveIntegrationRuntime",
+						"type": "IntegrationRuntimeReference"
+					},
+					"method": "GET",
+					"authentication": {
+						"type": "MSI",
+						"resource": "https://management.azure.com/"
+					}
+				}
+			},
+			{
+				"name": "Resume or Pause",
+				"type": "IfCondition",
+				"dependsOn": [
+					{
+						"activity": "Check Azure Synapse Analytics Status",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@or(and(equals(activity('Check Azure Synapse Analytics Status').output.properties.status,'Online'), equals(pipeline().parameters.Command,'Pause')),and(equals(activity('Check Azure Synapse Analytics Status').output.properties.status,'Paused'), equals(pipeline().parameters.Command,'Resume')))",
+						"type": "Expression"
+					},
+					"ifTrueActivities": [
+						{
+							"name": "Resume or Pause Azure Synapse Analytics",
+							"description": "Pause Azure Synapse Analytics created in Azure Synapse Analytics Workspaces using REST APIs",
+							"type": "WebActivity",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 3,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [
+								{
+									"name": "Azure Synapse Analytics",
+									"value": "Resume or Pause"
+								}
+							],
+							"typeProperties": {
+								"url": {
+									"value": "@concat('https://management.azure.com/subscriptions/',pipeline().parameters.SubscriptionId,'/resourceGroups/',pipeline().parameters.ResourceGroupName,'/providers/Microsoft.Synapse/workspaces/',pipeline().parameters.ServerName,'/sqlPools/',pipeline().parameters.DatabaseName,'/',pipeline().parameters.Command,'?api-version=2019-06-01-preview')",
+									"type": "Expression"
+								},
+								"connectVia": {
+									"referenceName": "AutoResolveIntegrationRuntime",
+									"type": "IntegrationRuntimeReference"
+								},
+								"method": "POST",
+								"body": {
+									"value": "{}",
+									"type": "Expression"
+								},
+								"authentication": {
+									"type": "MSI",
+									"resource": "https://management.azure.com/"
+								}
+							}
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"SubscriptionId": {
+				"type": "string"
+			},
+			"ResourceGroupName": {
+				"type": "string"
+			},
+			"Region": {
+				"type": "string"
+			},
+			"ServerName": {
+				"type": "string"
+			},
+			"DatabaseName": {
+				"type": "string"
+			},
+			"Command": {
+				"type": "string",
+				"defaultValue": "Pause"
+			}
+		},
+		"folder": {
+			"name": "Manage"
+		},
+		"annotations": [
+			"Synapse Analytics"
+		],
+		"lastPublishTime": "2022-10-19T09:07:25Z"
+	},
+	"type": "Microsoft.Synapse/workspaces/pipelines"
+}

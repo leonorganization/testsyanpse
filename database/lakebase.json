@@ -1,0 +1,25 @@
+{
+	"name": "lakebase",
+	"properties": {
+		"Name": "lakebase",
+		"EntityType": "DATABASE",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"Properties": {
+			"IsSyMSCDMDatabase": true
+		},
+		"Source": {
+			"Provider": "ADLS",
+			"Location": "abfss://test-system@leonly.dfs.core.windows.net/lakebase",
+			"Properties": {
+				"FormatType": "csv",
+				"LinkedServiceName": "sftp-workspace3-WorkspaceDefaultStorage"
+			}
+		},
+		"PublishStatus": "PUBLISHED",
+		"ObjectVersion": 1,
+		"ObjectId": "8e8badda-f08e-4b5f-9849-f76bd652d7d8"
+	},
+	"type": "DATABASE"
+}

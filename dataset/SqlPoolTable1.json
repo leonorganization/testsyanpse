@@ -1,0 +1,286 @@
+{
+	"name": "SqlPoolTable1",
+	"properties": {
+		"annotations": [],
+		"type": "SqlPoolTable",
+		"schema": [
+			{
+				"name": "iso_code",
+				"type": "nvarchar"
+			},
+			{
+				"name": "continent",
+				"type": "nvarchar"
+			},
+			{
+				"name": "location",
+				"type": "nvarchar"
+			},
+			{
+				"name": "date",
+				"type": "nvarchar"
+			},
+			{
+				"name": "total_cases",
+				"type": "nvarchar"
+			},
+			{
+				"name": "new_cases",
+				"type": "nvarchar"
+			},
+			{
+				"name": "new_cases_smoothed",
+				"type": "nvarchar"
+			},
+			{
+				"name": "total_deaths",
+				"type": "nvarchar"
+			},
+			{
+				"name": "new_deaths",
+				"type": "nvarchar"
+			},
+			{
+				"name": "new_deaths_smoothed",
+				"type": "nvarchar"
+			},
+			{
+				"name": "total_cases_per_million",
+				"type": "nvarchar"
+			},
+			{
+				"name": "new_cases_per_million",
+				"type": "nvarchar"
+			},
+			{
+				"name": "new_cases_smoothed_per_million",
+				"type": "nvarchar"
+			},
+			{
+				"name": "total_deaths_per_million",
+				"type": "nvarchar"
+			},
+			{
+				"name": "new_deaths_per_million",
+				"type": "nvarchar"
+			},
+			{
+				"name": "new_deaths_smoothed_per_million",
+				"type": "nvarchar"
+			},
+			{
+				"name": "reproduction_rate",
+				"type": "nvarchar"
+			},
+			{
+				"name": "icu_patients",
+				"type": "nvarchar"
+			},
+			{
+				"name": "icu_patients_per_million",
+				"type": "nvarchar"
+			},
+			{
+				"name": "hosp_patients",
+				"type": "nvarchar"
+			},
+			{
+				"name": "hosp_patients_per_million",
+				"type": "nvarchar"
+			},
+			{
+				"name": "weekly_icu_admissions",
+				"type": "nvarchar"
+			},
+			{
+				"name": "weekly_icu_admissions_per_million",
+				"type": "nvarchar"
+			},
+			{
+				"name": "weekly_hosp_admissions",
+				"type": "nvarchar"
+			},
+			{
+				"name": "weekly_hosp_admissions_per_million",
+				"type": "nvarchar"
+			},
+			{
+				"name": "total_tests",
+				"type": "nvarchar"
+			},
+			{
+				"name": "new_tests",
+				"type": "nvarchar"
+			},
+			{
+				"name": "total_tests_per_thousand",
+				"type": "nvarchar"
+			},
+			{
+				"name": "new_tests_per_thousand",
+				"type": "nvarchar"
+			},
+			{
+				"name": "new_tests_smoothed",
+				"type": "nvarchar"
+			},
+			{
+				"name": "new_tests_smoothed_per_thousand",
+				"type": "nvarchar"
+			},
+			{
+				"name": "positive_rate",
+				"type": "nvarchar"
+			},
+			{
+				"name": "tests_per_case",
+				"type": "nvarchar"
+			},
+			{
+				"name": "tests_units",
+				"type": "nvarchar"
+			},
+			{
+				"name": "total_vaccinations",
+				"type": "nvarchar"
+			},
+			{
+				"name": "people_vaccinated",
+				"type": "nvarchar"
+			},
+			{
+				"name": "people_fully_vaccinated",
+				"type": "nvarchar"
+			},
+			{
+				"name": "total_boosters",
+				"type": "nvarchar"
+			},
+			{
+				"name": "new_vaccinations",
+				"type": "nvarchar"
+			},
+			{
+				"name": "new_vaccinations_smoothed",
+				"type": "nvarchar"
+			},
+			{
+				"name": "total_vaccinations_per_hundred",
+				"type": "nvarchar"
+			},
+			{
+				"name": "people_vaccinated_per_hundred",
+				"type": "nvarchar"
+			},
+			{
+				"name": "people_fully_vaccinated_per_hundred",
+				"type": "nvarchar"
+			},
+			{
+				"name": "total_boosters_per_hundred",
+				"type": "nvarchar"
+			},
+			{
+				"name": "new_vaccinations_smoothed_per_million",
+				"type": "nvarchar"
+			},
+			{
+				"name": "new_people_vaccinated_smoothed",
+				"type": "nvarchar"
+			},
+			{
+				"name": "new_people_vaccinated_smoothed_per_hundred",
+				"type": "nvarchar"
+			},
+			{
+				"name": "stringency_index",
+				"type": "nvarchar"
+			},
+			{
+				"name": "population",
+				"type": "nvarchar"
+			},
+			{
+				"name": "population_density",
+				"type": "nvarchar"
+			},
+			{
+				"name": "median_age",
+				"type": "nvarchar"
+			},
+			{
+				"name": "aged_65_older",
+				"type": "nvarchar"
+			},
+			{
+				"name": "aged_70_older",
+				"type": "nvarchar"
+			},
+			{
+				"name": "gdp_per_capita",
+				"type": "nvarchar"
+			},
+			{
+				"name": "extreme_poverty",
+				"type": "nvarchar"
+			},
+			{
+				"name": "cardiovasc_death_rate",
+				"type": "nvarchar"
+			},
+			{
+				"name": "diabetes_prevalence",
+				"type": "nvarchar"
+			},
+			{
+				"name": "female_smokers",
+				"type": "nvarchar"
+			},
+			{
+				"name": "male_smokers",
+				"type": "nvarchar"
+			},
+			{
+				"name": "handwashing_facilities",
+				"type": "nvarchar"
+			},
+			{
+				"name": "hospital_beds_per_thousand",
+				"type": "nvarchar"
+			},
+			{
+				"name": "life_expectancy",
+				"type": "nvarchar"
+			},
+			{
+				"name": "human_development_index",
+				"type": "nvarchar"
+			},
+			{
+				"name": "excess_mortality_cumulative_absolute",
+				"type": "nvarchar"
+			},
+			{
+				"name": "excess_mortality_cumulative",
+				"type": "nvarchar"
+			},
+			{
+				"name": "excess_mortality",
+				"type": "nvarchar"
+			},
+			{
+				"name": "excess_mortality_cumulative_per_million",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "test",
+			"table": "coviddata"
+		},
+		"sqlPool": {
+			"referenceName": "test100c",
+			"type": "SqlPoolReference"
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

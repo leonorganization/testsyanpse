@@ -1,0 +1,155 @@
+{
+	"name": "TestSourceADLS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "container"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"iso_code": {
+					"type": "string"
+				},
+				"continent": {
+					"type": "string"
+				},
+				"location": {
+					"type": "string"
+				},
+				"date": {
+					"type": "string"
+				},
+				"total_cases": {
+					"type": "string"
+				},
+				"new_cases": {
+					"type": "string"
+				},
+				"new_cases_smoothed": {
+					"type": "string"
+				},
+				"total_deaths": {
+					"type": "string"
+				},
+				"new_deaths": {
+					"type": "string"
+				},
+				"new_deaths_smoothed": {
+					"type": "string"
+				},
+				"total_cases_per_million": {
+					"type": "string"
+				},
+				"new_cases_per_million": {
+					"type": "string"
+				},
+				"new_cases_smoothed_per_million": {
+					"type": "string"
+				},
+				"total_deaths_per_million": {
+					"type": "string"
+				},
+				"new_deaths_per_million": {
+					"type": "string"
+				},
+				"new_deaths_smoothed_per_million": {
+					"type": "string"
+				},
+				"reproduction_rate": {
+					"type": "string"
+				},
+				"total_vaccinations": {
+					"type": "string"
+				},
+				"people_vaccinated": {
+					"type": "string"
+				},
+				"people_fully_vaccinated": {
+					"type": "string"
+				},
+				"new_vaccinations_smoothed": {
+					"type": "string"
+				},
+				"total_vaccinations_per_hundred": {
+					"type": "string"
+				},
+				"people_vaccinated_per_hundred": {
+					"type": "string"
+				},
+				"people_fully_vaccinated_per_hundred": {
+					"type": "string"
+				},
+				"new_vaccinations_smoothed_per_million": {
+					"type": "string"
+				},
+				"new_people_vaccinated_smoothed": {
+					"type": "string"
+				},
+				"new_people_vaccinated_smoothed_per_hundred": {
+					"type": "string"
+				},
+				"stringency_index": {
+					"type": "string"
+				},
+				"population": {
+					"type": "string"
+				},
+				"population_density": {
+					"type": "string"
+				},
+				"median_age": {
+					"type": "string"
+				},
+				"aged_65_older": {
+					"type": "string"
+				},
+				"aged_70_older": {
+					"type": "string"
+				},
+				"gdp_per_capita": {
+					"type": "string"
+				},
+				"cardiovasc_death_rate": {
+					"type": "string"
+				},
+				"diabetes_prevalence": {
+					"type": "string"
+				},
+				"handwashing_facilities": {
+					"type": "string"
+				},
+				"hospital_beds_per_thousand": {
+					"type": "string"
+				},
+				"life_expectancy": {
+					"type": "string"
+				},
+				"human_development_index": {
+					"type": "string"
+				},
+				"new_vaccinations": {
+					"type": "string"
+				},
+				"total_tests": {
+					"type": "string"
+				},
+				"total_tests_per_thousand": {
+					"type": "string"
+				},
+				"tests_units": {
+					"type": "string"
+				}
+			}
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

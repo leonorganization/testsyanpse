@@ -1,0 +1,45 @@
+{
+	"name": "ds_adls_parquet_fullpath",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "dlsccbji0001",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"prm_filesytem": {
+				"type": "string",
+				"defaultValue": "filesystem"
+			},
+			"prm_directory": {
+				"type": "string",
+				"defaultValue": "directory"
+			},
+			"prm_file": {
+				"type": "string",
+				"defaultValue": "file"
+			}
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().prm_file",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().prm_directory",
+					"type": "Expression"
+				},
+				"fileSystem": {
+					"value": "@dataset().prm_filesytem",
+					"type": "Expression"
+				}
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

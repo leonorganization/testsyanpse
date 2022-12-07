@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 3",
+	"properties": {
+		"content": {
+			"query": "copy INTO dbo.testtable FROM 'https://leonly.blob.core.windows.net/container/csv/testdata.csv' WITH (FILE_TYPE='CSV', CREDENTIAL=(IDENTITY='Shared Access Signature', SECRET='?sv=2021-06-08&ss=bfqt&srt=sco&sp=rwdlacupyx&se=2022-08-30T15:30:07Z&st=2022-08-30T07:30:07Z&spr=https&sig=YbD12PbE15v04phqSB3bUJ%2BibQUPCQZqbwXJVqOYDFI%3D'))",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "test100c",
+				"poolName": "test100c"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

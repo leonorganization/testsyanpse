@@ -1,0 +1,26 @@
+{
+	"name": "AzureSynapseAnalyticsTable2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSynapseAnalytics2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [
+			{
+				"name": "column1",
+				"type": "varchar"
+			},
+			{
+				"name": "column2",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "testtable2"
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

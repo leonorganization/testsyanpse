@@ -1,0 +1,32 @@
+{
+	"name": "Trigger 7",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "Pipeline 5",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"SubscriptionId": "750575ff-ab82-4fa7-9a62-b7052fd86473",
+					"ResourceGroupName": "test-sftp_group",
+					"Region": "Japan East",
+					"ServerName": "sftp-workspace3",
+					"DatabaseName": "test100c"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Hour",
+				"interval": 1,
+				"startTime": "2022-10-17T06:25:00Z",
+				"endTime": "2022-10-18T06:29:00Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}

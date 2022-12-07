@@ -1,0 +1,10 @@
+{
+	"name": "synapse-ws-sqlOnDemand--sftp-workspace3",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/750575ff-ab82-4fa7-9a62-b7052fd86473/resourceGroups/test-sftp_group/providers/Microsoft.Synapse/workspaces/sftp-workspace3",
+		"groupId": "sqlOnDemand",
+		"fqdns": [
+			"sftp-workspace3-ondemand.6cbd8225-6f9c-494e-a2bc-40b3dba84cd3.sql.azuresynapse.net"
+		]
+	}
+}

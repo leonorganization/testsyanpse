@@ -1,0 +1,10 @@
+{
+	"name": "synapse-ws-custstgacct--sftp-workspace3-leonly",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/750575ff-ab82-4fa7-9a62-b7052fd86473/resourceGroups/test/providers/Microsoft.Storage/storageAccounts/leonly",
+		"groupId": "dfs",
+		"fqdns": [
+			"leonly.dfs.core.windows.net"
+		]
+	}
+}

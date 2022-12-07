@@ -1,0 +1,7 @@
+{
+	"name": "AzureSqlDatabase153",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/750575ff-ab82-4fa7-9a62-b7052fd86473/resourceGroups/test-VPN/providers/Microsoft.Sql/servers/leonsv",
+		"groupId": "sqlServer"
+	}
+}
