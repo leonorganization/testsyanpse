@@ -393,11 +393,11 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "Data flow2",
-						"type": "ExecuteDataFlow",
+						"name": "Copy data1",
+						"type": "Copy",
 						"dependsOn": [],
 						"policy": {
-							"timeout": "1.00:00:00",
+							"timeout": "0.12:00:00",
 							"retry": 0,
 							"retryIntervalInSeconds": 30,
 							"secureOutput": false,
@@ -405,28 +405,44 @@
 						},
 						"userProperties": [],
 						"typeProperties": {
-							"dataflow": {
-								"referenceName": "Dataflow2",
-								"type": "DataFlowReference",
-								"parameters": {},
-								"datasetParameters": {
-									"source1": {},
-									"sink1": {}
+							"source": {
+								"type": "SqlDWSource",
+								"queryTimeout": "02:00:00",
+								"partitionOption": "None"
+							},
+							"sink": {
+								"type": "ParquetSink",
+								"storeSettings": {
+									"type": "AzureBlobStorageWriteSettings"
+								},
+								"formatSettings": {
+									"type": "ParquetWriteSettings"
 								}
 							},
-							"staging": {
-								"linkedService": {
-									"referenceName": "AzureBlobStorage1",
-									"type": "LinkedServiceReference"
-								},
-								"folderPath": "container"
-							},
-							"compute": {
-								"coreCount": 8,
-								"computeType": "General"
-							},
-							"traceLevel": "Fine"
-						}
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "AzureSynapseAnalyticsTable2",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "Parquet1",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
 					}
 				],
 				"policy": {
@@ -437,8 +453,8 @@
 				"lastPublishTime": "2022-09-05T00:39:59Z"
 			},
 			"dependsOn": [
-				"[concat(variables('workspaceId'), '/dataflows/Dataflow2')]",
-				"[concat(variables('workspaceId'), '/linkedServices/AzureBlobStorage1')]"
+				"[concat(variables('workspaceId'), '/datasets/AzureSynapseAnalyticsTable2')]",
+				"[concat(variables('workspaceId'), '/datasets/Parquet1')]"
 			]
 		},
 		{
@@ -1555,6 +1571,296 @@
 			},
 			"dependsOn": [
 				"[concat(variables('workspaceId'), '/linkedServices/AzureBlobStorage1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/Parquet1')]",
+			"type": "Microsoft.Synapse/workspaces/datasets",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage2",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "test.par",
+						"container": "processed"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": [
+					{
+						"name": "Prop_0",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_1",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_2",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_3",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_4",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_5",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_6",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_7",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_8",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_9",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_10",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_11",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_12",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_13",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_14",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_15",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_16",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_17",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_18",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_19",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_20",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_21",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_22",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_23",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_24",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_25",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_26",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_27",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_28",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_29",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_30",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_31",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_32",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_33",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_34",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_35",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_36",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_37",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_38",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_39",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_40",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_41",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_42",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_43",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_44",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_45",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_46",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_47",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_48",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_49",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_50",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_51",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_52",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_53",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_54",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_55",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_56",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_57",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_58",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_59",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_60",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_61",
+						"type": "UTF8"
+					},
+					{
+						"name": "Prop_62",
+						"type": "UTF8"
+					},
+					{
+						"name": "year",
+						"type": "UTF8"
+					},
+					{
+						"name": "month",
+						"type": "UTF8"
+					},
+					{
+						"name": "day",
+						"type": "UTF8"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/linkedServices/AzureBlobStorage2')]"
 			]
 		},
 		{
@@ -6261,6 +6567,18 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('workspaceName'), '/test100c')]",
+			"type": "Microsoft.Synapse/workspaces/sqlPools",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"collation": "SQL_Latin1_General_CP1_CI_AS",
+				"maxSizeBytes": 263882790666240,
+				"annotations": []
+			},
+			"dependsOn": [],
+			"location": "japaneast"
+		},
+		{
 			"name": "[concat(parameters('workspaceName'), '/testspark')]",
 			"type": "Microsoft.Synapse/workspaces/bigDataPools",
 			"apiVersion": "2019-06-01-preview",
@@ -6280,18 +6598,6 @@
 				"sparkVersion": "3.2",
 				"isComputeIsolationEnabled": false,
 				"sessionLevelPackagesEnabled": false,
-				"annotations": []
-			},
-			"dependsOn": [],
-			"location": "japaneast"
-		},
-		{
-			"name": "[concat(parameters('workspaceName'), '/test100c')]",
-			"type": "Microsoft.Synapse/workspaces/sqlPools",
-			"apiVersion": "2019-06-01-preview",
-			"properties": {
-				"collation": "SQL_Latin1_General_CP1_CI_AS",
-				"maxSizeBytes": 263882790666240,
 				"annotations": []
 			},
 			"dependsOn": [],
