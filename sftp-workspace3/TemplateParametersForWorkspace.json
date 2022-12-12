@@ -1,0 +1,153 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"workspaceName": {
+			"value": "sftp-workspace3"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorage2_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage2_accountKey": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase2_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=leonsv.database.windows.net;Initial Catalog=leondb"
+		},
+		"AzureSynapseAnalytics1_connectionString": {
+			"value": ""
+		},
+		"AzureSynapseAnalytics2_connectionString": {
+			"value": ""
+		},
+		"AzureSynapseAnalytics3_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=sftp-workspace3.sql.azuresynapse.net;Initial Catalog=test100c"
+		},
+		"CCADLS2_accountKey": {
+			"value": ""
+		},
+		"DWsynapse_connectionString": {
+			"value": ""
+		},
+		"Leondb_connectionString": {
+			"value": ""
+		},
+		"Sftp1_privateKeyContent": {
+			"value": ""
+		},
+		"Sftp1_passPhrase": {
+			"value": ""
+		},
+		"Sftp2_password": {
+			"value": ""
+		},
+		"Sftp3123_password": {
+			"value": ""
+		},
+		"Sftp31242_password": {
+			"value": ""
+		},
+		"SqlServer1_connectionString": {
+			"value": ""
+		},
+		"SqlServer2_connectionString": {
+			"value": ""
+		},
+		"ccblob_connectionString": {
+			"value": ""
+		},
+		"lb_password": {
+			"value": ""
+		},
+		"leonworkspace-WorkspaceDefaultSqlServer_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:leonworkspace.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
+		},
+		"sftp-workspace-WorkspaceDefaultSqlServer_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:sftp-workspace.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
+		},
+		"sftp-workspace3-WorkspaceDefaultSqlServer_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:sftp-workspace3.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
+		},
+		"testpoilcy_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://leonly.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"value": "https://leonly.dfs.core.windows.net/"
+		},
+		"CCADLS2_properties_typeProperties_url": {
+			"value": "https://leonly.dfs.core.windows.net/"
+		},
+		"Sftp1_properties_typeProperties_host": {
+			"value": "10.0.0.12"
+		},
+		"Sftp1_properties_typeProperties_userName": {
+			"value": "azureuser"
+		},
+		"Sftp2_properties_typeProperties_host": {
+			"value": "lb.sftp.com"
+		},
+		"Sftp2_properties_typeProperties_userName": {
+			"value": "sftp_user"
+		},
+		"Sftp3123_properties_typeProperties_host": {
+			"value": "lb.sftp.com"
+		},
+		"Sftp3123_properties_typeProperties_userName": {
+			"value": "test"
+		},
+		"Sftp31242_properties_typeProperties_host": {
+			"value": "server2.sftp.com"
+		},
+		"Sftp31242_properties_typeProperties_userName": {
+			"value": "test"
+		},
+		"bing-covid-19-data_sasUri": {
+			"value": ""
+		},
+		"dlsccbji0001_properties_typeProperties_url": {
+			"value": "https://leonly.dfs.core.windows.net/"
+		},
+		"lb_properties_typeProperties_host": {
+			"value": "loadbalancer.sftp.com"
+		},
+		"lb_properties_typeProperties_userName": {
+			"value": "sftp_user"
+		},
+		"leonworkspace-WorkspaceDefaultStorage_properties_typeProperties_url": {
+			"value": "https://leonly.dfs.core.windows.net"
+		},
+		"sftp-workspace-WorkspaceDefaultStorage_properties_typeProperties_url": {
+			"value": "https://leonly.dfs.core.windows.net"
+		},
+		"sftp-workspace3-WorkspaceDefaultStorage_properties_typeProperties_url": {
+			"value": "https://leonly.dfs.core.windows.net"
+		},
+		"Trigger 7_properties_Pipeline 5_parameters_SubscriptionId": {
+			"value": "750575ff-ab82-4fa7-9a62-b7052fd86473"
+		},
+		"Trigger 7_properties_Pipeline 5_parameters_ResourceGroupName": {
+			"value": "test-sftp_group"
+		},
+		"Trigger 7_properties_Pipeline 5_parameters_Region": {
+			"value": "Japan East"
+		},
+		"Trigger 7_properties_Pipeline 5_parameters_ServerName": {
+			"value": "sftp-workspace3"
+		},
+		"Trigger 7_properties_Pipeline 5_parameters_DatabaseName": {
+			"value": "test100c"
+		}
+	}
+}
